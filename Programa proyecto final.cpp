@@ -637,7 +637,7 @@ void probabilidad_incendio() {
   string condicion_meteorologica;
   float temperatura;
   float velocidad_viento;
-
+  bool fechaEncontrada=false;
   cout << "Ingrese una fecha cualquiera con el siguiente formato "
           "(ano-mes-dia):\n";
   getline(cin, fecha);
@@ -652,6 +652,7 @@ void probabilidad_incendio() {
       istringstream ss(texto);
       ss >> fecha1;
       if (fecha == fecha1) {
+        fechaEncontrada = true;
         ss >> temperatura >> velocidad_viento >> velocidad_viento >>
             condicion_meteorologica >> condicion_meteorologica;
         // Calcular la probabilidad de incendio
@@ -661,7 +662,7 @@ void probabilidad_incendio() {
           return;
         }
         if (temperatura > 35 && condicion_meteorologica == "Soleado" &&
-            velocidad_viento >= 7 && velocidad_viento <= 10) {
+          velocidad_viento >= 7 && velocidad_viento <= 10) {
           cout << "\nCon la temperatura de " << temperatura
                << "C°, la velocidad del viento " << velocidad_viento
                << ",y la condicion meterologica "
@@ -669,7 +670,8 @@ void probabilidad_incendio() {
           cout << "Probabilidad de incendio : ALTA" << endl;
           cout << "Hay una alta probabilidad de incendio." << endl;
           salida << " -> Probabilidad de incendio: \"ALTA\"\n";
-        } else if (velocidad_viento >= 3 && velocidad_viento <= 5 &&
+        } 
+        else if (velocidad_viento >= 3 && velocidad_viento <= 5 &&
                    temperatura >= 25 && temperatura <= 35 &&
                    condicion_meteorologica == "Soleado") {
           cout << "\nCon la temperatura de " << temperatura
@@ -679,7 +681,8 @@ void probabilidad_incendio() {
           cout << "Probabilidad de incendio : MEDIA" << endl;
           cout << "Existe la probabilidad de incendio." << endl;
           salida << "\n-> Probabilidad de incendio: \"MEDIA\"\n";
-        } else if (velocidad_viento <= 2 && temperatura >= 15 &&
+        } 
+        else if (velocidad_viento <= 2 && temperatura >= 15 &&
                    temperatura < 25 && condicion_meteorologica == "Soleado") {
           cout << "\nCon la temperatura de " << temperatura
                << "C°, la velocidad del viento " << velocidad_viento
@@ -688,8 +691,8 @@ void probabilidad_incendio() {
           cout << "Probabilidad de incendio: BAJA." << endl;
           cout << "No hay probabilidad de incendio." << endl;
           salida << "\n-> Probabilidad de incendio: \"BAJA\"\n";
-        } else {
-          cout << "\nCon la temperatura de " << temperatura
+        } 
+        else {cout << "\nCon la temperatura de " << temperatura
                << "C°, la velocidad del viento " << velocidad_viento
                << ",y la condicion meterologica "
                << "(" << condicion_meteorologica << ")"
@@ -705,7 +708,10 @@ void probabilidad_incendio() {
         salida.close();
       }
     }
-  }
+    if(!fechaEncontrada){
+      cout << "Fecha no encontrada" << endl;
+    }
+  }  
 }
 
 // Función para calcular la probabilidad de tormenta
