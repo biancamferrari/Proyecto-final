@@ -1,0 +1,7 @@
+Buenas noches profesor.
+
+Con este mensaje queremos explicarle que fue lo que sucedió con la función del ordenamiento a la hora de incluir nuevas fechas.
+Nosotros nos habíamos dado cuenta de este error hace dos días atrás como le mostramos en el historial de Replit, pagina que utilizamos para poder trabajar en simultaneo, pero tuvimos un inconveniente a la hora de correr el código en grupo ya que no nos lo permitía así que teníamos que crear una copia aparte donde estuviéramos cada uno individual y poder compilarlo, por tanto al subirlo se subió por accidente una de las copias pero no la versión final que ya contemplaba ese error, el cual consistía en intercambiar las líneas 308 y 309, quedando al final  archivo.close();
+    ordenarTxT();
+
+Esperamos con esto se puedan aclarar las dudas pertinentes. Muchas gracias.
